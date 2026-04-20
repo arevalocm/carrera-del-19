@@ -167,8 +167,11 @@
   <div class="stats-row" id="stats-row"></div>
   <div class="last-fecha-label" id="last-fecha-label"></div>
   <div id="last-fecha-card"></div>
-  <div class="section-label">Clasificación general · La Carrera del 19 — Leaderboard</div>
   <div class="card">
+    <div class="card-header">
+      <div class="card-title">Clasificación General · La Carrera del 19</div>
+      <div class="card-sub">Leaderboard acumulado — temporada 2026</div>
+    </div>
     <div class="lb-col-headers">
       <span class="lbch-rank">#</span>
       <span class="lbch-mv">Mov</span>
@@ -384,16 +387,19 @@ function tryUnlock() {
   }
 }
 
+// Siempre bloquear al cargar — sin excepciones
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('lock-screen').style.display = 'flex';
+  document.getElementById('admin-content').style.display = 'none';
+  adminUnlocked = false;
+});
+
 function lockAdmin() {
   adminUnlocked = false;
+  sessionStorage.removeItem('adminOk');
   document.getElementById('lock-screen').style.display = 'flex';
   document.getElementById('admin-content').style.display = 'none';
 }
-
-// Siempre cerrar sesion admin al abrir la pagina
-window.addEventListener('pageshow', function() {
-  lockAdmin();
-});
 
 function changePassword() {
   const newPwd = document.getElementById('new-pwd').value.trim();
