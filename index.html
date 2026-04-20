@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Carrera del 19 · Copa Prowork 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Barlow+Condensed:wght@300;400;500;600;700&amp;family=Barlow:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --green-deep: #0a1a0e;
@@ -151,22 +149,108 @@
       <span>Copa Prowork · Cuarta Edición 2025</span>
     </div>
     <div class="last-update">
-      <strong id="last-update-date">—</strong>
+      <strong id="last-update-date">18 de Abr de 2026</strong>
       Última act.
     </div>
   </div>
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('ranking')">🏆 Ranking</button>
+    <button class="tab-btn" onclick="showTab('ranking')">🏆 Ranking</button>
     <button class="tab-btn" onclick="showTab('fechas')">📅 Fechas</button>
-    <button class="tab-btn" onclick="showTab('admin')">⚙️ Admin</button>
+    <button class="tab-btn active" onclick="showTab('admin')">⚙️ Admin</button>
   </div>
 </div>
 
 <!-- ══ RANKING ══ -->
-<div id="screen-ranking" class="screen active">
-  <div class="stats-row" id="stats-row"></div>
-  <div class="last-fecha-label" id="last-fecha-label"></div>
-  <div id="last-fecha-card"></div>
+<div id="screen-ranking" class="screen">
+  <div class="stats-row" id="stats-row">
+    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label">Jugadores</div></div>
+    <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Fechas</div></div>
+    <div class="stat-box"><div class="stat-num">0</div><div class="stat-label">C/ Major</div></div>
+  </div>
+  <div class="last-fecha-label" id="last-fecha-label">ÚLTIMA FECHA <em>Sábado, 18 de Abr de 2026</em></div>
+  <div id="last-fecha-card"><div class="card">
+      <div class="card-header">
+        <div class="card-title">Resultados — Sábado, 18 de Abr de 2026</div>
+        <div class="card-sub">Posición individual por jugador · Categoría según hándicap</div>
+      </div>
+      <div class="col-headers">
+        <span class="ch-pos">Pos</span>
+        <span class="ch-name">Jugador</span>
+        <span class="ch-torneo">Torneo</span>
+        <span class="ch-pts">Pts</span>
+      </div>
+      <div class="result-row">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">150</span>
+      </div><div class="result-row">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">67.5</span>
+      </div><div class="result-row">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">67.5</span>
+      </div><div class="result-row">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">85</span>
+      </div><div class="result-row">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">85</span>
+      </div><div class="result-row">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">85</span>
+      </div><div class="result-row">
+        <span class="pos-num">8°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">80</span>
+      </div><div class="result-row">
+        <span class="pos-num">13°</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">28.5</span>
+      </div><div class="result-row">
+        <span class="pos-num">27°</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">30</span>
+      </div><div class="result-row">
+        <span class="pos-num">33°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">24</span>
+      </div><div class="result-row">
+        <span class="pos-num">49°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">8</span>
+      </div><div class="result-row dnp">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div></div>
   <div class="section-label">Clasificación general · La Carrera del 19 — Leaderboard</div>
   <div class="card">
     <div class="lb-col-headers">
@@ -177,39 +261,685 @@
       <span class="lbch-total">Total</span>
       <span class="lbch-gap">Gap</span>
     </div>
-    <div id="leaderboard"></div>
+    <div id="leaderboard"><div class="lb-row">
+      <span class="lb-rank first">1</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Tomás Martinez Pardo</div>
+        <div class="lb-sub-text">5/6 fechas</div>
+      </div>
+      <span class="lb-n">5</span>
+      <span class="lb-total">989.5</span>
+      <span class="lb-gap">—</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">2</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Fernando Melen Araoz</div>
+        <div class="lb-sub-text">5/6 fechas</div>
+      </div>
+      <span class="lb-n">5</span>
+      <span class="lb-total">859.5</span>
+      <span class="lb-gap">-130</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">3</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Diego Bejar</div>
+        <div class="lb-sub-text">5/6 fechas</div>
+      </div>
+      <span class="lb-n">5</span>
+      <span class="lb-total">505</span>
+      <span class="lb-gap">-484.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">4</span>
+      <span class="lb-mv"><span class="mv-up">▲1</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Mariano Fagalde</div>
+        <div class="lb-sub-text">4/6 fechas</div>
+      </div>
+      <span class="lb-n">4</span>
+      <span class="lb-total">503</span>
+      <span class="lb-gap">-486.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">5</span>
+      <span class="lb-mv"><span class="mv-down">▼1</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Carlos Arevalo</div>
+        <div class="lb-sub-text">5/6 fechas</div>
+      </div>
+      <span class="lb-n">5</span>
+      <span class="lb-total">500</span>
+      <span class="lb-gap">-489.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">6</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Zenon Santillan</div>
+        <div class="lb-sub-text">6/6 fechas</div>
+      </div>
+      <span class="lb-n">6</span>
+      <span class="lb-total">449.5</span>
+      <span class="lb-gap">-540</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">7</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Carlos Peralta</div>
+        <div class="lb-sub-text">6/6 fechas</div>
+      </div>
+      <span class="lb-n">6</span>
+      <span class="lb-total">390</span>
+      <span class="lb-gap">-599.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">8</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Rubén Farias</div>
+        <div class="lb-sub-text">5/6 fechas</div>
+      </div>
+      <span class="lb-n">5</span>
+      <span class="lb-total">316.5</span>
+      <span class="lb-gap">-673</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">9</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Horacio Nofal</div>
+        <div class="lb-sub-text">2/6 fechas</div>
+      </div>
+      <span class="lb-n">2</span>
+      <span class="lb-total">220</span>
+      <span class="lb-gap">-769.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">10</span>
+      <span class="lb-mv"><span class="mv-up">▲1</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Javier Cristobal</div>
+        <div class="lb-sub-text">3/6 fechas</div>
+      </div>
+      <span class="lb-n">3</span>
+      <span class="lb-total">190.5</span>
+      <span class="lb-gap">-799</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">11</span>
+      <span class="lb-mv"><span class="mv-down">▼1</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Francisco Landivar</div>
+        <div class="lb-sub-text">4/6 fechas</div>
+      </div>
+      <span class="lb-n">4</span>
+      <span class="lb-total">169</span>
+      <span class="lb-gap">-820.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">12</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Adriano Bourguignon</div>
+        <div class="lb-sub-text">3/6 fechas</div>
+      </div>
+      <span class="lb-n">3</span>
+      <span class="lb-total">103.5</span>
+      <span class="lb-gap">-886</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">13</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Pedro Cabrera</div>
+        <div class="lb-sub-text">2/6 fechas</div>
+      </div>
+      <span class="lb-n">2</span>
+      <span class="lb-total">89</span>
+      <span class="lb-gap">-900.5</span>
+    </div><div class="lb-row">
+      <span class="lb-rank">14</span>
+      <span class="lb-mv"><span class="mv-same">—</span></span>
+      <div class="lb-info">
+        <div class="lb-name-text">Raul Cabrera</div>
+        <div class="lb-sub-text">1/6 fechas</div>
+      </div>
+      <span class="lb-n">1</span>
+      <span class="lb-total">28.5</span>
+      <span class="lb-gap">-961</span>
+    </div></div>
   </div>
 </div>
 
 <!-- ══ FECHAS ══ -->
 <div id="screen-fechas" class="screen">
   <div class="section-label" style="margin-bottom:14px;">Historial de fechas</div>
-  <div id="fechas-list"></div>
+  <div id="fechas-list"><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 18 de Abr de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+150</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+67.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+67.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+85</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+85</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+85</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">8°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+80</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">13°</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+28.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">27°</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+30</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">33°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+24</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">49°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+8</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 11 de Abr de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">1°</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+250</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+300</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">3°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+95</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+67.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">5°</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+110</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">11°</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+32.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">12°</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+30</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">14°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+55</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">17°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+24.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">17°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+24.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">20°</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+21.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">21°</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+20.5</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 4 de Abr de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+300</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">3°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+95</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">4°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+67.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">5°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+55</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+85</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">12°</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+30</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">13°</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+28.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">14°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+27.5</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">15°</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge badge-sec">SECUND.<br>50%</span>
+        <span class="pts-cell">+26.5</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 28 de Mar de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">8°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+80</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">8°</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+80</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">16°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+51</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">19°</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+45</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">25°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+33</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">30°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+27</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 21 de Mar de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">1°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+500</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">1°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+500</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+300</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">6°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+90</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">6°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+90</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">7°</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+85</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">10°</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+70</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">16°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+51</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div><div class="fecha-card">
+      <div class="fecha-card-header">
+        <span class="fecha-card-date">Sábado, 7 de Mar de 2026</span>
+      </div>
+      <div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">2°</span>
+        <span class="player-name-cell">Fernando Melen Araoz</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+300</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">5°</span>
+        <span class="player-name-cell">Horacio Nofal</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+110</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">6°</span>
+        <span class="player-name-cell">Zenon Santillan</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+90</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">8°</span>
+        <span class="player-name-cell">Francisco Landivar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+80</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">9°</span>
+        <span class="player-name-cell">Diego Bejar</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+75</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">11°</span>
+        <span class="player-name-cell">Carlos Peralta</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+65</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">21°</span>
+        <span class="player-name-cell">Carlos Arevalo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+41</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">23°</span>
+        <span class="player-name-cell">Tomás Martinez Pardo</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+37</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">25°</span>
+        <span class="player-name-cell">Mariano Fagalde</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+33</span>
+      </div><div class="result-row" style="padding:9px 14px;">
+        <span class="pos-num">33°</span>
+        <span class="player-name-cell">Rubén Farias</span>
+        <span class="torneo-badge badge-princ">PRINC.<br>100%</span>
+        <span class="pts-cell">+24</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Javier Cristobal</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Adriano Bourguignon</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Pedro Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div><div class="result-row dnp" style="padding:9px 14px;">
+        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
+        <span class="player-name-cell">Raul Cabrera</span>
+        <span class="torneo-badge" style="width:72px;"></span>
+        <span class="dnp-cell">—</span>
+      </div>
+    </div></div>
 </div>
 
 <!-- ══ ADMIN ══ -->
-<div id="screen-admin" class="screen">
+<div id="screen-admin" class="screen active">
 
   <!-- LOCK SCREEN -->
-  <div class="lock-screen" id="lock-screen">
+  <div class="lock-screen" id="lock-screen" style="display: none;">
     <div class="lock-icon">🔒</div>
     <div class="lock-title">Acceso Admin</div>
     <div class="lock-sub">Ingresá la clave para acceder al panel de administración</div>
-    <input class="lock-input" type="password" id="pwd-input" placeholder="• • • • • •" maxlength="20" />
+    <input class="lock-input" type="password" id="pwd-input" placeholder="• • • • • •" maxlength="20">
     <div class="lock-error" id="lock-error"></div>
     <button class="btn-unlock" onclick="tryUnlock()">Ingresar</button>
   </div>
 
   <!-- ADMIN PANEL (oculto hasta desbloquear) -->
-  <div class="admin-content" id="admin-content">
+  <div class="admin-content" id="admin-content" style="display: block;">
 
     <button class="btn-lock-out" onclick="lockAdmin()">🔒 Cerrar sesión</button>
 
     <div class="admin-block">
       <div class="admin-block-title">Jugadores registrados</div>
-      <div class="players-list" id="players-list"></div>
+      <div class="players-list" id="players-list">
+        <div class="player-chip">
+          <span class="player-chip-name">Carlos Arevalo</span>
+          <button class="btn-remove" onclick="removePlayer(0)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Francisco Landivar</span>
+          <button class="btn-remove" onclick="removePlayer(1)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Fernando Melen Araoz</span>
+          <button class="btn-remove" onclick="removePlayer(2)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Horacio Nofal</span>
+          <button class="btn-remove" onclick="removePlayer(3)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Zenon Santillan</span>
+          <button class="btn-remove" onclick="removePlayer(4)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Diego Bejar</span>
+          <button class="btn-remove" onclick="removePlayer(5)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Carlos Peralta</span>
+          <button class="btn-remove" onclick="removePlayer(6)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Tomás Martinez Pardo</span>
+          <button class="btn-remove" onclick="removePlayer(7)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Mariano Fagalde</span>
+          <button class="btn-remove" onclick="removePlayer(8)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Javier Cristobal</span>
+          <button class="btn-remove" onclick="removePlayer(9)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Rubén Farias</span>
+          <button class="btn-remove" onclick="removePlayer(10)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Adriano Bourguignon</span>
+          <button class="btn-remove" onclick="removePlayer(11)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Pedro Cabrera</span>
+          <button class="btn-remove" onclick="removePlayer(12)">✕</button>
+        </div>
+        <div class="player-chip">
+          <span class="player-chip-name">Raul Cabrera</span>
+          <button class="btn-remove" onclick="removePlayer(13)">✕</button>
+        </div></div>
       <div class="form-row">
-        <input class="form-input" id="new-player-name" placeholder="Nombre del jugador" />
+        <input class="form-input" id="new-player-name" placeholder="Nombre del jugador">
       </div>
       <button class="btn-primary" id="btn-add-player" onclick="addPlayer()">+ Agregar jugador</button>
     </div>
@@ -218,11 +948,151 @@
       <div class="admin-block-title">Cargar nueva fecha</div>
       <div class="form-row">
         <label class="form-label">Fecha del sábado</label>
-        <input class="form-input" type="date" id="new-fecha-date" />
+        <input class="form-input" type="date" id="new-fecha-date">
       </div>
       <div class="admin-block-title" style="margin-top:14px;">Resultado por jugador</div>
-      <div class="results-grid" id="results-grid"></div>
-      <div class="saved-msg" id="saved-msg">✓ Fecha guardada correctamente</div>
+      <div class="results-grid" id="results-grid"><div class="result-entry">
+      <div class="result-entry-name">Carlos Arevalo</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Carlos Arevalo">
+        <select class="form-select" id="tipo_Carlos Arevalo">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Francisco Landivar</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Francisco Landivar">
+        <select class="form-select" id="tipo_Francisco Landivar">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Fernando Melen Araoz</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Fernando Melen Araoz">
+        <select class="form-select" id="tipo_Fernando Melen Araoz">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Horacio Nofal</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Horacio Nofal">
+        <select class="form-select" id="tipo_Horacio Nofal">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Zenon Santillan</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Zenon Santillan">
+        <select class="form-select" id="tipo_Zenon Santillan">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Diego Bejar</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Diego Bejar">
+        <select class="form-select" id="tipo_Diego Bejar">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Carlos Peralta</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Carlos Peralta">
+        <select class="form-select" id="tipo_Carlos Peralta">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Tomás Martinez Pardo</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Tomás Martinez Pardo">
+        <select class="form-select" id="tipo_Tomás Martinez Pardo">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Mariano Fagalde</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Mariano Fagalde">
+        <select class="form-select" id="tipo_Mariano Fagalde">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Javier Cristobal</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Javier Cristobal">
+        <select class="form-select" id="tipo_Javier Cristobal">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Rubén Farias</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Rubén Farias">
+        <select class="form-select" id="tipo_Rubén Farias">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Adriano Bourguignon</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Adriano Bourguignon">
+        <select class="form-select" id="tipo_Adriano Bourguignon">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Pedro Cabrera</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Pedro Cabrera">
+        <select class="form-select" id="tipo_Pedro Cabrera">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div><div class="result-entry">
+      <div class="result-entry-name">Raul Cabrera</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="0" max="200" placeholder="Pos (0=DNP)" id="pos_Raul Cabrera">
+        <select class="form-select" id="tipo_Raul Cabrera">
+          <option value="principal">Principal (100%)</option>
+          <option value="secundario">Secundario (50%)</option>
+          <option value="major">Major (300%)</option>
+        </select>
+      </div>
+    </div></div>
+      <div class="saved-msg" id="saved-msg" style="display: none;">✓ Fecha guardada correctamente</div>
       <button class="btn-primary" id="btn-save-date" onclick="saveDate()">Guardar fecha</button>
     </div>
 
@@ -241,7 +1111,7 @@
     <div class="admin-block">
       <div class="admin-block-title">Cambiar clave de admin</div>
       <div class="change-pwd-row">
-        <input class="form-input" type="password" id="new-pwd" placeholder="Nueva clave" maxlength="20" />
+        <input class="form-input" type="password" id="new-pwd" placeholder="Nueva clave" maxlength="20">
         <button class="btn-small" onclick="changePassword()">Cambiar</button>
       </div>
       <div class="saved-msg" id="pwd-saved-msg" style="text-align:left;padding-left:0;">✓ Clave actualizada</div>
@@ -334,7 +1204,7 @@ const DEFAULT_PASSWORD = '1919';
 // ESTADO — los datos del torneo van aquí
 // Al exportar, este objeto se reemplaza con los datos reales
 // ══════════════════════════════════════════
-let STATE = {"adminPassword": "1919", "lastUpdate": null, "players": [], "dates": []};
+let STATE = {"adminPassword":"1919","lastUpdate":"2026-04-18","players":["Carlos Arevalo","Francisco Landivar","Fernando Melen Araoz","Horacio Nofal","Zenon Santillan","Diego Bejar","Carlos Peralta","Tomás Martinez Pardo","Mariano Fagalde","Javier Cristobal","Rubén Farias","Adriano Bourguignon","Pedro Cabrera","Raul Cabrera"],"dates":[{"date":"2026-03-07","results":[{"player":"Carlos Arevalo","pos":21,"tipo":"principal"},{"player":"Francisco Landivar","pos":8,"tipo":"principal"},{"player":"Fernando Melen Araoz","pos":2,"tipo":"principal"},{"player":"Horacio Nofal","pos":5,"tipo":"principal"},{"player":"Zenon Santillan","pos":6,"tipo":"principal"},{"player":"Diego Bejar","pos":9,"tipo":"principal"},{"player":"Carlos Peralta","pos":11,"tipo":"principal"},{"player":"Tomás Martinez Pardo","pos":23,"tipo":"principal"},{"player":"Mariano Fagalde","pos":25,"tipo":"principal"},{"player":"Javier Cristobal","pos":0,"tipo":"principal"},{"player":"Rubén Farias","pos":33,"tipo":"principal"},{"player":"Adriano Bourguignon","pos":0,"tipo":"principal"},{"player":"Pedro Cabrera","pos":0,"tipo":"principal"},{"player":"Raul Cabrera","pos":0,"tipo":"principal"}]},{"date":"2026-03-21","results":[{"player":"Carlos Arevalo","pos":0,"tipo":"principal"},{"player":"Francisco Landivar","pos":0,"tipo":"principal"},{"player":"Fernando Melen Araoz","pos":1,"tipo":"principal"},{"player":"Horacio Nofal","pos":0,"tipo":"principal"},{"player":"Zenon Santillan","pos":16,"tipo":"principal"},{"player":"Diego Bejar","pos":10,"tipo":"principal"},{"player":"Carlos Peralta","pos":6,"tipo":"principal"},{"player":"Tomás Martinez Pardo","pos":1,"tipo":"principal"},{"player":"Mariano Fagalde","pos":2,"tipo":"principal"},{"player":"Javier Cristobal","pos":7,"tipo":"principal"},{"player":"Rubén Farias","pos":6,"tipo":"principal"},{"player":"Adriano Bourguignon","pos":0,"tipo":"principal"},{"player":"Pedro Cabrera","pos":0,"tipo":"principal"},{"player":"Raul Cabrera","pos":0,"tipo":"principal"}]},{"date":"2026-03-28","results":[{"player":"Carlos Arevalo","pos":8,"tipo":"principal"},{"player":"Francisco Landivar","pos":0,"tipo":"principal"},{"player":"Fernando Melen Araoz","pos":30,"tipo":"principal"},{"player":"Horacio Nofal","pos":0,"tipo":"principal"},{"player":"Zenon Santillan","pos":16,"tipo":"principal"},{"player":"Diego Bejar","pos":8,"tipo":"principal"},{"player":"Carlos Peralta","pos":25,"tipo":"principal"},{"player":"Tomás Martinez Pardo","pos":0,"tipo":"principal"},{"player":"Mariano Fagalde","pos":0,"tipo":"principal"},{"player":"Javier Cristobal","pos":0,"tipo":"principal"},{"player":"Rubén Farias","pos":0,"tipo":"principal"},{"player":"Adriano Bourguignon","pos":19,"tipo":"principal"},{"player":"Pedro Cabrera","pos":0,"tipo":"principal"},{"player":"Raul Cabrera","pos":0,"tipo":"principal"}]},{"date":"2026-04-04","results":[{"player":"Carlos Arevalo","pos":2,"tipo":"principal"},{"player":"Francisco Landivar","pos":15,"tipo":"secundario"},{"player":"Fernando Melen Araoz","pos":0,"tipo":"principal"},{"player":"Horacio Nofal","pos":0,"tipo":"principal"},{"player":"Zenon Santillan","pos":3,"tipo":"secundario"},{"player":"Diego Bejar","pos":12,"tipo":"secundario"},{"player":"Carlos Peralta","pos":14,"tipo":"secundario"},{"player":"Tomás Martinez Pardo","pos":4,"tipo":"secundario"},{"player":"Mariano Fagalde","pos":7,"tipo":"principal"},{"player":"Javier Cristobal","pos":0,"tipo":"principal"},{"player":"Rubén Farias","pos":5,"tipo":"secundario"},{"player":"Adriano Bourguignon","pos":13,"tipo":"secundario"},{"player":"Pedro Cabrera","pos":0,"tipo":"principal"},{"player":"Raul Cabrera","pos":0,"tipo":"principal"}]},{"date":"2026-04-11","results":[{"player":"Carlos Arevalo","pos":14,"tipo":"principal"},{"player":"Francisco Landivar","pos":11,"tipo":"secundario"},{"player":"Fernando Melen Araoz","pos":17,"tipo":"secundario"},{"player":"Horacio Nofal","pos":5,"tipo":"principal"},{"player":"Zenon Santillan","pos":3,"tipo":"secundario"},{"player":"Diego Bejar","pos":1,"tipo":"secundario"},{"player":"Carlos Peralta","pos":17,"tipo":"secundario"},{"player":"Tomás Martinez Pardo","pos":2,"tipo":"principal"},{"player":"Mariano Fagalde","pos":0,"tipo":"principal"},{"player":"Javier Cristobal","pos":21,"tipo":"secundario"},{"player":"Rubén Farias","pos":4,"tipo":"secundario"},{"player":"Adriano Bourguignon","pos":12,"tipo":"secundario"},{"player":"Pedro Cabrera","pos":20,"tipo":"secundario"},{"player":"Raul Cabrera","pos":0,"tipo":"principal"}]},{"date":"2026-04-18","results":[{"player":"Carlos Arevalo","pos":33,"tipo":"principal"},{"player":"Francisco Landivar","pos":27,"tipo":"principal"},{"player":"Fernando Melen Araoz","pos":49,"tipo":"principal"},{"player":"Horacio Nofal","pos":0,"tipo":"principal"},{"player":"Zenon Santillan","pos":4,"tipo":"secundario"},{"player":"Diego Bejar","pos":0,"tipo":"principal"},{"player":"Carlos Peralta","pos":2,"tipo":"secundario"},{"player":"Tomás Martinez Pardo","pos":7,"tipo":"principal"},{"player":"Mariano Fagalde","pos":7,"tipo":"principal"},{"player":"Javier Cristobal","pos":7,"tipo":"principal"},{"player":"Rubén Farias","pos":8,"tipo":"principal"},{"player":"Adriano Bourguignon","pos":0,"tipo":"principal"},{"player":"Pedro Cabrera","pos":4,"tipo":"secundario"},{"player":"Raul Cabrera","pos":13,"tipo":"secundario"}]}]};
 
 // ══════════════════════════════════════════
 // PERSISTENCIA
@@ -753,5 +1623,6 @@ document.getElementById('new-player-name').addEventListener('keydown', e => {
   if (e.key === 'Enter') addPlayer();
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
