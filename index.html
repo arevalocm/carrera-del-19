@@ -34,7 +34,7 @@
   /* HEADER */
   .site-header { background: var(--green-dark); border-bottom: 1px solid var(--green-border); padding: 0 16px; position: sticky; top: 0; z-index: 100; }
   .header-top { display: flex; align-items: center; justify-content: space-between; padding: 10px 0 0; }
-  .header-logo { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 900; color: var(--gold); line-height: 1.1; }
+  .header-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: 1px; text-transform: uppercase; }
   .header-logo span { display: block; font-size: 9px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 3px; color: var(--text-primary); text-transform: uppercase; margin-top: 1px; }
   .last-update { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; text-align: right; }
   .last-update strong { color: var(--text-secondary); display: block; font-size: 11px; }
@@ -78,21 +78,21 @@
   .dnp-cell { width: 50px; text-align: right; color: var(--text-muted); font-size: 13px; }
 
   /* LEADERBOARD */
-  .lb-col-headers { display: flex; padding: 6px 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; gap: 4px; }
-  .lbch-rank { width: 24px; } .lbch-mv { width: 38px; } .lbch-name { flex: 1; } .lbch-n { width: 28px; text-align: center; } .lbch-total { width: 52px; text-align: right; } .lbch-gap { width: 44px; text-align: right; }
+  .lb-col-headers { display: flex; padding: 6px 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #ffffff; text-transform: uppercase; gap: 4px; font-weight: 600; }
+  .lbch-rank { width: 24px; } .lbch-mv { width: 38px; } .lbch-name { flex: 1; } .lbch-total { width: 64px; text-align: right; } .lbch-gap { width: 52px; text-align: right; }
   .lb-row { display: flex; align-items: center; padding: 11px 14px; border-top: 1px solid var(--green-border); gap: 4px; }
-  .lb-rank { width: 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; color: var(--text-primary); font-weight: 500; }
-  .lb-rank.first { color: var(--gold); font-size: 15px; font-weight: 700; }
+  .lb-rank { width: 24px; font-family: 'Barlow', sans-serif; font-size: 14px; color: #ffffff; font-weight: 500; }
+  .lb-rank.first { color: var(--gold); font-size: 16px; font-weight: 700; }
   .lb-mv { width: 38px; display: flex; align-items: center; }
   .mv-up { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--up-color); font-weight: 600; }
   .mv-down { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--down-color); font-weight: 600; }
   .mv-same { font-size: 11px; color: var(--text-muted); }
   .lb-info { flex: 1; }
-  .lb-name-text { font-size: 14px; color: #eee8d5; font-weight: 500; }
+  .lb-name-text { font-size: 14px; color: #ffffff; font-weight: 500; }
   .lb-sub-text { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; color: var(--text-muted); margin-top: 1px; }
-  .lb-n { width: 28px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; color: var(--text-muted); }
-  .lb-total { width: 52px; text-align: right; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); font-weight: 700; }
-  .lb-gap { width: 44px; text-align: right; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; color: var(--text-muted); }
+
+  .lb-total { width: 64px; text-align: right; font-family: 'Barlow Condensed', sans-serif; font-size: 17px; color: var(--gold); font-weight: 700; letter-spacing: 0.5px; }
+  .lb-gap { width: 52px; text-align: right; font-family: 'Barlow', sans-serif; font-size: 12px; color: #8aaa8a; }
 
   /* FECHAS */
   .fecha-card { background: var(--green-card); border: 1px solid var(--green-border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
@@ -182,7 +182,6 @@
       <span class="lbch-rank">#</span>
       <span class="lbch-mv">Mov</span>
       <span class="lbch-name">Jugador</span>
-      <span class="lbch-n">N°</span>
       <span class="lbch-total">Total</span>
       <span class="lbch-gap">Gap</span>
     </div>
@@ -585,7 +584,6 @@ function renderRanking() {
         <div class="lb-name-text">${p.name}</div>
         <div class="lb-sub-text">${p.n}/${totalFechas} fechas</div>
       </div>
-      <span class="lb-n">${p.n}</span>
       <span class="lb-total">${p.total}</span>
       <span class="lb-gap">${gap}</span>
     </div>`;
