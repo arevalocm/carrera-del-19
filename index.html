@@ -95,9 +95,16 @@
   .lb-gap { width: 52px; text-align: right; font-family: 'Barlow', sans-serif; font-size: 12px; color: #8aaa8a; }
 
   /* FECHAS */
-  .fecha-card { background: var(--green-card); border: 1px solid var(--green-border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
-  .fecha-card-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--green-border); }
-  .fecha-card-date { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); }
+  .fecha-card { background: var(--green-card); border: 1px solid var(--green-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .fecha-card-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; cursor: pointer; user-select: none; }
+  .fecha-card-header:hover { background: rgba(255,255,255,0.03); }
+  .fecha-card-left { display: flex; align-items: center; gap: 10px; }
+  .fecha-num-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1px; color: var(--gold); background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; padding: 2px 7px; text-transform: uppercase; white-space: nowrap; }
+  .fecha-card-date { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-primary); }
+  .fecha-chevron { font-size: 11px; color: var(--text-muted); transition: transform 0.25s; display: inline-block; }
+  .fecha-chevron.open { transform: rotate(180deg); }
+  .fecha-body { display: none; border-top: 1px solid var(--green-border); }
+  .fecha-body.open { display: block; }
 
   /* ADMIN LOCK SCREEN */
   .lock-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px 40px; text-align: center; }
@@ -547,44 +554,11 @@ function renderRanking() {
   const llabel = document.getElementById('last-fecha-label');
   const lcard = document.getElementById('last-fecha-card');
 
+  lcard.innerHTML = '';
   if (!lastFecha) {
     llabel.innerHTML = '';
-    lcard.innerHTML = '<div class="card"><div class="empty-state">Sin fechas cargadas aún</div></div>';
   } else {
     llabel.innerHTML = `ÚLTIMA FECHA <em>${formatDate(lastFecha.date)}</em>`;
-    const sorted = [...(lastFecha.results || [])].filter(r => r.pos > 0).sort((a,b) => a.pos - b.pos);
-    const dnp = (lastFecha.results || []).filter(r => r.pos === 0);
-    let rows = '';
-    sorted.forEach(r => {
-      const pts = getPoints(r.pos, r.tipo);
-      rows += `<div class="result-row">
-        <span class="pos-num">${r.pos}°</span>
-        <span class="player-name-cell">${r.player}</span>
-        ${tipoBadge(r.tipo)}
-        <span class="pts-cell">${pts}</span>
-      </div>`;
-    });
-    dnp.forEach(r => {
-      rows += `<div class="result-row dnp">
-        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
-        <span class="player-name-cell">${r.player}</span>
-        <span class="torneo-badge" style="width:72px;"></span>
-        <span class="dnp-cell">—</span>
-      </div>`;
-    });
-    lcard.innerHTML = `<div class="card">
-      <div class="card-header">
-        <div class="card-title">Resultados — ${formatDate(lastFecha.date)}</div>
-        <div class="card-sub">Posición individual por jugador · Categoría según hándicap</div>
-      </div>
-      <div class="col-headers">
-        <span class="ch-pos">Pos</span>
-        <span class="ch-name">Jugador</span>
-        <span class="ch-torneo">Torneo</span>
-        <span class="ch-pts">Pts</span>
-      </div>
-      ${rows}
-    </div>`;
   }
 
   const mv = getRankingMovement();
@@ -620,43 +594,77 @@ function renderRanking() {
 // ══════════════════════════════════════════
 // RENDER FECHAS
 // ══════════════════════════════════════════
+function toggleFecha(id) {
+  var body = document.getElementById('fecha-body-' + id);
+  var chev = document.getElementById('fecha-chev-' + id);
+  if (!body) return;
+  var open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  if (chev) chev.classList.toggle('open', !open);
+}
+
 function renderFechas() {
-  const el = document.getElementById('fechas-list');
+  var el = document.getElementById('fechas-list');
   if (STATE.dates.length === 0) {
     el.innerHTML = '<div class="empty-state">Sin fechas cargadas aún</div>';
     return;
   }
-  el.innerHTML = [...STATE.dates].reverse().map((fecha, idx) => {
-    const sorted = [...(fecha.results || [])].filter(r => r.pos > 0).sort((a,b) => a.pos - b.pos);
-    const dnp = (fecha.results || []).filter(r => r.pos === 0);
-    let rows = '';
-    sorted.forEach(r => {
-      const pts = getPoints(r.pos, r.tipo);
-      rows += `<div class="result-row" style="padding:9px 14px;">
-        <span class="pos-num">${r.pos}°</span>
-        <span class="player-name-cell">${r.player}</span>
-        ${tipoBadge(r.tipo)}
-        <span class="pts-cell">+${pts}</span>
-      </div>`;
-    });
-    dnp.forEach(r => {
-      rows += `<div class="result-row dnp" style="padding:9px 14px;">
-        <span class="pos-num" style="color:var(--text-muted)">DNP</span>
-        <span class="player-name-cell">${r.player}</span>
-        <span class="torneo-badge" style="width:72px;"></span>
-        <span class="dnp-cell">—</span>
-      </div>`;
-    });
-    const realIdx = STATE.dates.length - 1 - idx;
-    const editBtn = adminUnlocked ? `<button onclick="editDate(${realIdx})" style="background:none;border:none;cursor:pointer;color:#c9a84c;font-size:18px;padding:0 4px;line-height:1;" title="Editar fecha">✏️</button>` : '';
-    return `<div class="fecha-card">
-      <div class="fecha-card-header">
-        <span class="fecha-card-date">${formatDate(fecha.date)}</span>
-        ${editBtn}
-      </div>
-      ${rows}
-    </div>`;
-  }).join('');
+  var total = STATE.dates.length;
+  var html = '';
+  var reversed = STATE.dates.slice().reverse();
+  for (var idx = 0; idx < reversed.length; idx++) {
+    var fecha = reversed[idx];
+    var realIdx = total - 1 - idx;
+    var fechaNum = realIdx + 1;
+    var isLast = idx === 0;
+    var bodyClass = isLast ? 'fecha-body open' : 'fecha-body';
+    var chevClass = isLast ? 'fecha-chevron open' : 'fecha-chevron';
+
+    var sorted = (fecha.results || []).filter(function(r){ return r.pos > 0; }).sort(function(a,b){ return a.pos - b.pos; });
+    var dnp    = (fecha.results || []).filter(function(r){ return r.pos === 0; });
+
+    var rows = '';
+    for (var ri = 0; ri < sorted.length; ri++) {
+      var r = sorted[ri];
+      var pts = getPoints(r.pos, r.tipo);
+      rows += '<div class="result-row" style="padding:9px 14px;">'
+        + '<span class="pos-num">' + r.pos + '°</span>'
+        + '<span class="player-name-cell">' + r.player + '</span>'
+        + tipoBadge(r.tipo)
+        + '<span class="pts-cell">+' + pts + '</span>'
+        + '</div>';
+    }
+    for (var di = 0; di < dnp.length; di++) {
+      var d = dnp[di];
+      rows += '<div class="result-row dnp" style="padding:9px 14px;">'
+        + '<span class="pos-num" style="color:var(--text-muted)">DNP</span>'
+        + '<span class="player-name-cell">' + d.player + '</span>'
+        + '<span class="torneo-badge" style="width:72px;"></span>'
+        + '<span class="dnp-cell">—</span>'
+        + '</div>';
+    }
+
+    var editBtn = adminUnlocked
+      ? '<button onclick="editDate(' + realIdx + ')" style="background:none;border:none;cursor:pointer;color:#c9a84c;font-size:18px;padding:0 4px;line-height:1;" title="Editar fecha">✏️</button>'
+      : '';
+
+    html += '<div class="fecha-card">'
+      + '<div class="fecha-card-header" onclick="toggleFecha(' + realIdx + ')">'
+      + '<div class="fecha-card-left">'
+      + '<span class="fecha-num-badge">Fecha ' + fechaNum + '</span>'
+      + '<span class="fecha-card-date">' + formatDate(fecha.date) + '</span>'
+      + '</div>'
+      + '<div style="display:flex;align-items:center;gap:6px;">'
+      + editBtn
+      + '<span class="' + chevClass + '" id="fecha-chev-' + realIdx + '">▼</span>'
+      + '</div>'
+      + '</div>'
+      + '<div class="' + bodyClass + '" id="fecha-body-' + realIdx + '">'
+      + rows
+      + '</div>'
+      + '</div>';
+  }
+  el.innerHTML = html;
 }
 
 // ══════════════════════════════════════════
