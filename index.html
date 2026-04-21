@@ -164,6 +164,7 @@
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('ranking')">🏆 Ranking</button>
     <button class="tab-btn" onclick="showTab('fechas')">📅 Fechas</button>
+    <button class="tab-btn" onclick="showTab('playoff')">🏅 Play Off</button>
     <button class="tab-btn" onclick="showTab('admin')">⚙️ Admin</button>
   </div>
 </div>
@@ -193,6 +194,14 @@
 <div id="screen-fechas" class="screen">
   <div class="section-label" style="margin-bottom:14px;">Historial de fechas</div>
   <div id="fechas-list"></div>
+</div>
+
+
+<!-- ══ PLAY OFF ══ -->
+<div id="screen-playoff" class="screen">
+  <div class="section-label" style="margin-bottom:14px;">Play Off · 36 Hoyos · Par 71</div>
+  <div id="playoff-leaderboard-card"></div>
+  <div id="playoff-rondas"></div>
 </div>
 
 <!-- ══ ADMIN ══ -->
@@ -236,6 +245,23 @@
 
     <div class="divider"></div>
 
+
+    <div class="admin-block" id="playoff-admin-block">
+      <div class="admin-block-title">Play Off — Cargar ronda</div>
+      <div class="form-row">
+        <label class="form-label">Ronda</label>
+        <select class="form-select" id="po-ronda-num">
+          <option value="1">Ronda 1 — Country</option>
+          <option value="2">Ronda 2 — Alpa</option>
+        </select>
+      </div>
+      <div class="admin-block-title" style="margin-top:12px;">Score neto por jugador</div>
+      <div class="results-grid" id="po-results-grid"></div>
+      <div class="saved-msg" id="po-saved-msg">✓ Ronda guardada</div>
+      <button class="btn-primary" onclick="savePlayoffRound()">Guardar ronda Play Off</button>
+    </div>
+
+    <div class="divider"></div>
     <div class="admin-block">
       <div class="admin-block-title">Exportar para GitHub</div>
       <div class="export-box">
@@ -386,6 +412,7 @@ function tryUnlock() {
     document.getElementById('pwd-input').value = '';
     document.getElementById('lock-error').textContent = '';
     renderAdmin();
+    renderPlayoffAdmin();
   } else {
     document.getElementById('lock-error').textContent = 'Clave incorrecta';
     document.getElementById('pwd-input').value = '';
@@ -652,6 +679,7 @@ function renderAdmin() {
     grid.innerHTML = '<div class="empty-state" style="padding:10px 0;">Agregá jugadores primero</div>';
     return;
   }
+  renderPlayoffAdmin();
   grid.innerHTML = STATE.players.map(p => {
     const safeP = p.replace(/"/g, '&quot;');
     return `<div class="result-entry">
@@ -774,18 +802,233 @@ function exportHTML() {
   URL.revokeObjectURL(url);
 }
 
+
+// ══════════════════════════════════════════
+// PLAY OFF
+// ══════════════════════════════════════════
+const PAR_CANCHA = 71;
+
+const PLAYOFF_HCP_ADJUST = [-10, -8, -7, -6, -5, -4, -4, -4, -3, -3, -3, -2, -2, -2, -1, -1, -1, 0];
+
+function getPlayoffHcp(playerName) {
+  const lb = buildLeaderboard();
+  const idx = lb.findIndex(p => p.name === playerName);
+  if (idx < 0) return 0;
+  const adj = idx < PLAYOFF_HCP_ADJUST.length ? PLAYOFF_HCP_ADJUST[idx] : 0;
+  return adj;
+}
+
+function formatScore(total) {
+  if (total === 0) return { text: 'E', cls: 'po-even' };
+  if (total < 0) return { text: total.toString(), cls: 'po-under' };
+  return { text: '+' + total, cls: 'po-over' };
+}
+
+
+function buildPlayoffLbHTML(standings, po) {
+  var PAR = PAR_CANCHA;
+
+  var r1cancha = po.rounds[0] ? po.rounds[0].cancha : '';
+  var r2cancha = po.rounds[1] ? po.rounds[1].cancha : '';
+
+  // Format score vs par: under=red, even=green E, over=black
+  function fmtScore(n) {
+    if (n === null) return {text: '—', color: '#888'};
+    if (n === 0)   return {text: 'E',  color: '#1a7a1a'};
+    if (n < 0)     return {text: '' + n, color: '#cc2222'};
+    return          {text: '+' + n, color: '#111111'};
+  }
+
+  // Assign tied positions: T2, T2, 4, T5, T5...
+  function assignPositions(arr) {
+    var result = [];
+    var i = 0;
+    while (i < arr.length) {
+      var j = i;
+      while (j < arr.length && arr[j].adjustedTotal === arr[i].adjustedTotal) j++;
+      var count = j - i;
+      var posLabel = count > 1 ? 'T' + (i + 1) : '' + (i + 1);
+      for (var k = i; k < j; k++) result.push(posLabel);
+      i = j;
+    }
+    return result;
+  }
+
+  // Movement vs previous round
+  function getMovement(p, roundIdx) {
+    if (roundIdx === 0 || po.rounds.length < 2) return null;
+    // Build standings after previous round only
+    var prevStandings = standings.map(function(x) {
+      var prevRounds = x.roundsVsPar.slice(0, roundIdx);
+      var prevSum = prevRounds.reduce(function(s,v){ return s + (v !== null ? v : 0); }, 0);
+      return { name: x.name, score: x.hcpAdj + prevSum };
+    }).sort(function(a,b){ return a.score - b.score; });
+    var prevPos = prevStandings.findIndex(function(x){ return x.name === p.name; });
+    var currPos = standings.findIndex(function(x){ return x.name === p.name; });
+    if (prevPos < 0 || currPos < 0) return null;
+    var delta = prevPos - currPos;
+    if (delta > 0) return {type: 'up', delta: delta};
+    if (delta < 0) return {type: 'down', delta: Math.abs(delta)};
+    return {type: 'same'};
+  }
+
+  var lastRoundIdx = po.rounds.length - 1;
+  var positions = assignPositions(standings);
+
+  var headerRow = '<tr style="border-bottom:2px solid #ccc;">'
+    + '<th style="width:40px;padding:7px 8px 7px 14px;text-align:left;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">#</th>'
+    + '<th style="width:36px;padding:7px 4px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">MOV</th>'
+    + '<th style="padding:7px 8px;text-align:left;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">JUGADOR</th>'
+    + '<th style="width:60px;padding:7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">TOTAL</th>'
+    + '<th style="width:52px;padding:7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">R1<br><span style="font-size:8px;color:#888;font-weight:400;">' + r1cancha + '</span></th>'
+    + '<th style="width:52px;padding:7px 14px 7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">R2<br><span style="font-size:8px;color:#888;font-weight:400;">' + r2cancha + '</span></th>'
+    + '</tr>';
+
+  var bodyRows = standings.map(function(p, i) {
+    var tot = fmtScore(p.adjustedTotal);
+    var pos = positions[i];
+
+    var mov = getMovement(p, lastRoundIdx);
+    var movHtml = '<span style="color:#888;font-size:11px;">—</span>';
+    if (mov) {
+      if (mov.type === 'up')   movHtml = '<span style="color:#1a7a1a;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;">▲' + mov.delta + '</span>';
+      if (mov.type === 'down') movHtml = '<span style="color:#cc2222;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;">▼' + mov.delta + '</span>';
+    }
+
+    function netoCell(neto, vp) {
+      if (neto === null) return '<td style="text-align:center;color:#aaa;padding:10px 8px;">—</td>';
+      var s = fmtScore(vp);
+      return '<td style="width:52px;padding:8px;text-align:center;vertical-align:middle;">'
+        + '<div style="font-family:Barlow Condensed,sans-serif;font-size:15px;font-weight:700;color:#222;line-height:1.1;">' + neto + '</div>'
+        + '<div style="font-family:Barlow Condensed,sans-serif;font-size:10px;font-weight:700;color:' + s.color + ';margin-top:1px;">' + s.text + '</div>'
+        + '</td>';
+    }
+
+    var rowBg = i % 2 === 0 ? '#f9f9f9' : '#ffffff';
+
+    return '<tr style="border-top:1px solid #e0e0e0;background:' + rowBg + ';">'
+      + '<td style="padding:10px 8px 10px 14px;vertical-align:middle;font-family:Barlow Condensed,sans-serif;font-size:13px;font-weight:700;color:#222;">' + pos + '</td>'
+      + '<td style="width:36px;padding:10px 4px;text-align:center;vertical-align:middle;">' + movHtml + '</td>'
+      + '<td style="padding:10px 8px;vertical-align:middle;font-family:Barlow,sans-serif;font-size:14px;color:#111;font-weight:500;">' + p.name + '</td>'
+      + '<td style="width:60px;padding:10px 8px;text-align:center;vertical-align:middle;font-family:Barlow Condensed,sans-serif;font-size:18px;font-weight:700;color:' + tot.color + ';">' + tot.text + '</td>'
+      + netoCell(p.rounds[0], p.roundsVsPar[0])
+      + netoCell(p.rounds[1], p.roundsVsPar[1])
+      + '</tr>';
+  }).join('');
+
+  return '<div class="card" style="background:#fff;border:1px solid #ddd;">'
+    + '<div class="card-header" style="background:#fff;border-bottom:1px solid #eee;">'
+    + '<div class="card-title" style="color:#111;">Play-off — Leaderboard</div>'
+    + '<div class="card-sub" style="color:#666;">' + po.rounds.length + ' de 2 rondas · Par ' + PAR + '</div>'
+    + '</div>'
+    + '<div style="overflow-x:auto;">'
+    + '<table style="width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;">'
+    + '<thead>' + headerRow + '</thead>'
+    + '<tbody>' + bodyRows + '</tbody>'
+    + '</table>'
+    + '</div>'
+    + '</div>';
+}
+
+function renderPlayoff() {
+  const po = STATE.playoff || { rounds: [] };
+
+  // Leaderboard card
+  const lbCard = document.getElementById('playoff-leaderboard-card');
+  const rondasEl = document.getElementById('playoff-rondas');
+
+  if (po.rounds.length === 0) {
+    lbCard.innerHTML = '<div class="empty-state" style="padding:30px;">Play Off no iniciado aún</div>';
+    rondasEl.innerHTML = '';
+    return;
+  }
+
+  // Build standings
+  // adjustedTotal = ventaja inicial + suma de (neto - par) por ronda jugada
+  // Ej: ventaja -10, ronda1 neto 75 → -10 + (75-71) = -10 + 4 = -6
+  const standings = STATE.players.map(name => {
+    const hcpAdj = getPlayoffHcp(name);  // negativo: -10, -8, etc.
+    const rounds = po.rounds.map(r => {
+      const res = r.results.find(x => x.player === name);
+      return (res && res.neto !== null) ? res.neto : null;
+    });
+    const roundsVsPar = rounds.map(v => v !== null ? v - PAR_CANCHA : null);
+    const sumaRondas = roundsVsPar.reduce((s, v) => s + (v !== null ? v : 0), 0);
+    const adjustedTotal = hcpAdj + sumaRondas;
+    return { name, hcpAdj, rounds, roundsVsPar, adjustedTotal };
+  }).sort((a, b) => a.adjustedTotal - b.adjustedTotal);
+
+  // Leaderboard
+  const leader = standings[0]?.adjustedTotal ?? 0;
+  lbCard.innerHTML = buildPlayoffLbHTML(standings, po);
+
+  rondasEl.innerHTML = '';
+}
+
+function renderPlayoffAdmin() {
+  if (!adminUnlocked) return;
+  const grid = document.getElementById('po-results-grid');
+  if (!grid) return;
+  if (STATE.players.length === 0) {
+    grid.innerHTML = '<div class="empty-state">Sin jugadores</div>';
+    return;
+  }
+  grid.innerHTML = STATE.players.map(p => `
+    <div class="result-entry">
+      <div class="result-entry-name">${p}</div>
+      <div class="result-entry-fields">
+        <input class="form-input field-small" type="number" min="50" max="120"
+          placeholder="Score neto" id="po_${p.replace(/[^a-zA-Z0-9]/g,'_')}" />
+      </div>
+    </div>`).join('');
+}
+
+function savePlayoffRound() {
+  const rondaNum = parseInt(document.getElementById('po-ronda-num').value);
+  const canchas = { 1: 'Country', 2: 'Alpa' };
+  const cancha = canchas[rondaNum] || 'Ronda ' + rondaNum;
+
+  if (!STATE.playoff) STATE.playoff = { rounds: [] };
+
+  const results = STATE.players.map(p => {
+    const id = 'po_' + p.replace(/[^a-zA-Z0-9]/g,'_');
+    const el = document.getElementById(id);
+    const val = el ? parseInt(el.value) : null;
+    return { player: p, neto: isNaN(val) ? null : val };
+  });
+
+  // Replace or add round
+  const existing = STATE.playoff.rounds.findIndex(r => r.ronda === rondaNum);
+  if (existing >= 0) {
+    STATE.playoff.rounds[existing] = { ronda: rondaNum, cancha, results };
+  } else {
+    STATE.playoff.rounds.push({ ronda: rondaNum, cancha, results });
+    STATE.playoff.rounds.sort((a,b) => a.ronda - b.ronda);
+  }
+
+  STATE.lastUpdate = new Date().toISOString().split('T')[0];
+  saveStateLS();
+
+  const msg = document.getElementById('po-saved-msg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 2500);
+  renderPlayoff();
+}
+
+
 // ══════════════════════════════════════════
 // TABS
 // ══════════════════════════════════════════
 function showTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const tabs = ['ranking','fechas','admin'];
+  const tabs = ['ranking','fechas','playoff','admin'];
   const idx = tabs.indexOf(tab);
   if (idx >= 0) document.querySelectorAll('.tab-btn')[idx].classList.add('active');
   document.getElementById('screen-' + tab).classList.add('active');
   if (tab === 'ranking') renderRanking();
   if (tab === 'fechas') renderFechas();
+  if (tab === 'playoff') renderPlayoff();
 }
 
 // ══════════════════════════════════════════
