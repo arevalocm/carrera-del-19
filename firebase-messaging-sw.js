@@ -13,4 +13,13 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
-// Firebase SDK maneja las notificaciones automáticamente sin onBackgroundMessage
+
+messaging.onBackgroundMessage(function(payload) {
+  const { title, body } = payload.notification;
+  self.registration.showNotification(title, {
+    body: body,
+    icon: '/carrera-del-19/icon-192.png',
+    tag: 'golf-notif',
+    renotify: false
+  });
+});
