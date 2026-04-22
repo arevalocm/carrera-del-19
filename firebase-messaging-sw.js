@@ -22,8 +22,8 @@ messaging.onBackgroundMessage(function(payload) {
   const { title, body, icon } = payload.notification;
   self.registration.showNotification(title, {
     body: body,
-    icon: icon || '/icon-192.png',
-    badge: '/icon-192.png',
+    icon: icon || '/carrera-del-19/icon-192.png',
+    badge: '/carrera-del-19/icon-192.png',
     vibrate: [200, 100, 200],
     tag: 'golf-notification',
     renotify: true

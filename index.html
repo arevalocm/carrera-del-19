@@ -1103,7 +1103,7 @@ async function initFirebaseMessaging() {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     messaging = firebase.messaging();
 
-    const swReg = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+    const swReg = await navigator.serviceWorker.register('/carrera-del-19/firebase-messaging-sw.js');
     const permission = await Notification.requestPermission();
     if (permission !== 'granted') return;
 
