@@ -1542,7 +1542,7 @@ function renderRanking() {
       <span class="${rankClass}">${lbPositions[i]}</span>
       <span class="lb-mv">${mvHtml}</span>
       <div class="lb-info">
-        <div class="lb-name-text">${p.name}</div>
+        <div class="lb-name-text">${p.name}${['Mariano Fagalde','Javier Cristobal','Fernando Melen Araoz','Carlos Arevalo','Francisco Landivar','Diego Bejar','Carlos Peralta'].includes(p.name) ? ' <span style="color:var(--gold);">(P)</span>' : ''}</div>
         <div class="lb-sub-text">${p.n}/${totalFechas} fechas</div>
       </div>
       <span class="lb-total">${p.total}</span>
