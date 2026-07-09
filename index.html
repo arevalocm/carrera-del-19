@@ -454,8 +454,30 @@
 
   <!-- SECCIÓN I -->
   <div class="card" style="background:#0d2215;margin-bottom:10px;">
+    <div class="reg-header" onclick="toggleReg('reg0')">
+      <div class="reg-title">Sección I: Espíritu del Torneo</div>
+      <span class="reg-chevron" id="chev-reg0">▼</span>
+    </div>
+    <div id="reg0" style="padding:12px 14px;flex-direction:column;gap:10px;display:none;">
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.75;">
+        La Carrera del 19 es, ante todo, una competencia de <strong style="color:var(--gold);">regularidad</strong>. Su filosofía es simple: el campeón no es quien gana un torneo, sino quien mejor rinde a lo largo de toda la temporada. Cada sábado cuenta. Cada resultado suma. La consistencia es la única estrategia ganadora.
+      </div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.75;">
+        Este modelo está inspirado en la <strong style="color:var(--gold);">FedEx Cup del PGA Tour</strong>, la competición de puntos más importante del golf profesional mundial. Al igual que en la FedEx Cup, los jugadores acumulan puntos semana a semana según sus resultados, con el objetivo de mantenerse entre los mejores al final de la fase regular para clasificar al Play-off final.
+      </div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.75;">
+        Dentro de la temporada regular se disputan dos <strong style="color:var(--gold);">torneos Major</strong>, que otorgan el doble de puntos que un torneo convencional. Su propósito es doble: mantener en alerta a quienes lideran la clasificación, y ofrecer una oportunidad real de remontada a quienes vienen más rezagados. Un solo Major puede cambiar el panorama general por completo.
+      </div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.75;">
+        La cantidad de Majors está deliberadamente limitada a <strong style="color:var(--gold);">dos por temporada</strong>. Incorporar más rompería la esencia misma del torneo: si los Majors fueran frecuentes, la temporada dejaría de premiar la regularidad y pasaría a depender casi exclusivamente de los resultados en esas fechas. El jugador que rinde bien semana a semana perdería la ventaja que merece, y la competencia se reduciría a quien mejor juega en torneos puntuales — algo muy diferente a lo que La Carrera del 19 busca coronar.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN II -->
+  <div class="card" style="background:#0d2215;margin-bottom:10px;">
     <div class="reg-header" onclick="toggleReg('reg1')">
-      <div class="reg-title">Sección I: Bases y Objetivos</div>
+      <div class="reg-title">Sección II: Bases y Objetivos</div>
       <span class="reg-chevron" id="chev-reg1">▼</span>
     </div>
     <div id="reg1" style="padding:12px 14px;flex-direction:column;gap:10px;display:none;">
@@ -471,10 +493,10 @@
     </div>
   </div>
 
-  <!-- SECCIÓN II -->
+  <!-- SECCIÓN III -->
   <div class="card" style="background:#0d2215;margin-bottom:10px;">
     <div class="reg-header" onclick="toggleReg('reg2')">
-      <div class="reg-title">Sección II: Fase Regular</div>
+      <div class="reg-title">Sección III: Fase Regular</div>
       <span class="reg-chevron" id="chev-reg2">▼</span>
     </div>
     <div id="reg2" style="padding: 12px 14px; flex-direction: column; gap: 10px; display: none;">
@@ -483,7 +505,7 @@
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.65;"><strong style="color:var(--gold);">12.</strong> <strong>Torneos Simultáneos:</strong> Si se programan dos o más torneos oficiales simultáneos, ambos serán válidos. Se designará uno como "Principal" (100%) y el otro como "Menor" (50%).</div>
       <div style="font-family:'Barlow',sans-serif;font-size:14px;color:#e8e8d5;line-height:1.65;"><strong style="color:var(--gold);">13.</strong> <strong>Categorías y Pesos:</strong></div>
       <div style="background:#091510;border-radius:8px;padding:12px 14px;border:1px solid var(--green-border);margin-top:8px;">
-        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.8;">🥇 Torneo Principal (con sponsor): <strong style="color:var(--gold);">100%</strong> de los puntos<br>🥈 Torneo Menor (Medal Play sin sponsor): <strong style="color:var(--gold);">50%</strong> de los puntos<br>⭐ Torneo Major (último de la fase regular): <strong style="color:var(--gold);">200%</strong> de los puntos</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.8;">🥇 Torneo Principal (con sponsor): <strong style="color:var(--gold);">100%</strong> de los puntos<br>🥈 Torneo Menor (Medal Play sin sponsor): <strong style="color:var(--gold);">50%</strong> de los puntos<br>⭐ Torneo Major: <strong style="color:var(--gold);">200%</strong> de los puntos<br><span style="font-size:12px;color:#b0b09a;">Se disputarán dos Majors por temporada: el <strong style="color:#e8e8d5;">Torneo Abierto del Norte</strong> y el <strong style="color:#e8e8d5;">último torneo de la fase regular</strong>. Ambos otorgan el 200% de los puntos correspondientes a la posición obtenida.</span></div>
       </div>
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.65;"><strong style="color:var(--gold);">14.</strong> <strong>Flexibilidad:</strong> La alternativa de torneos permite a los jugadores elegir dónde jugar sin afectar su participación en la competencia.</div>
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#e8e8d5;line-height:1.65;"><strong style="color:var(--gold);">15.</strong> <strong>Resultados Oficiales:</strong> Solo serán válidos los resultados finales publicados en la App del Club.</div>
@@ -496,10 +518,10 @@
     </div>
   </div>
 
-  <!-- SECCIÓN III -->
+  <!-- SECCIÓN IV -->
   <div class="card" style="background:#0d2215;margin-bottom:10px;">
     <div class="reg-header" onclick="toggleReg('reg3')">
-      <div class="reg-title">Sección III: Play Off y Definición</div>
+      <div class="reg-title">Sección IV: Play Off y Definición</div>
       <span class="reg-chevron" id="chev-reg3">▼</span>
     </div>
     <div id="reg3" style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;display:none;">
@@ -514,10 +536,10 @@
     </div>
   </div>
 
-  <!-- SECCIÓN IV -->
+  <!-- SECCIÓN V -->
   <div class="card" style="background:#0d2215;margin-bottom:10px;">
     <div class="reg-header" onclick="toggleReg('reg4')">
-      <div class="reg-title">Sección IV: Premios y Gobernanza</div>
+      <div class="reg-title">Sección V: Premios y Gobernanza</div>
       <span class="reg-chevron" id="chev-reg4">▼</span>
     </div>
     <div id="reg4" style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;display:none;">
