@@ -1104,7 +1104,7 @@
       <div class="form-row">
         <label class="form-label">Ronda</label>
         <select class="form-select" id="tt-ronda-select">
-          <option value="1">Ronda 1 — Country</option>
+          <option value="1">Ronda 1 — Las Termas</option>
           <option value="2">Ronda 2 — Alpa</option>
         </select>
       </div>
@@ -1128,7 +1128,7 @@ Nombre Invitado 2" style="resize:vertical;font-size:13px;"></textarea>
       <div class="form-row">
         <label class="form-label">Ronda</label>
         <select class="form-select" id="po-ronda-num">
-          <option value="1">Ronda 1 — Country</option>
+          <option value="1">Ronda 1 — Las Termas</option>
           <option value="2">Ronda 2 — Alpa</option>
         </select>
       </div>
@@ -1989,7 +1989,7 @@ function renderPlayoff() {
       + '<th style="width:36px;padding:7px 4px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">MOV</th>'
       + '<th style="padding:7px 8px;text-align:left;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">JUGADOR</th>'
       + '<th style="width:60px;padding:7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">TOTAL</th>'
-      + '<th style="width:52px;padding:7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">R1<br><span style="font-size:8px;color:#888;font-weight:400;">Country</span></th>'
+      + '<th style="width:52px;padding:7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">R1<br><span style="font-size:8px;color:#888;font-weight:400;">Las Termas</span></th>'
       + '<th style="width:52px;padding:7px 14px 7px 8px;text-align:center;font-family:Barlow Condensed,sans-serif;font-size:10px;letter-spacing:1.5px;color:#333;font-weight:700;">R2<br><span style="font-size:8px;color:#888;font-weight:400;">Alpa</span></th>'
       + '</tr></thead>'
       + '<tbody>' + emptyRows + '</tbody>'
@@ -2040,7 +2040,7 @@ function renderPlayoffAdmin() {
 
 function savePlayoffRound() {
   const rondaNum = parseInt(document.getElementById('po-ronda-num').value);
-  const canchas = { 1: 'Country', 2: 'Alpa' };
+  const canchas = { 1: 'Las Termas', 2: 'Alpa' };
   const cancha = canchas[rondaNum] || 'Ronda ' + rondaNum;
 
   if (!STATE.playoff) STATE.playoff = { rounds: [] };
@@ -2194,7 +2194,7 @@ function renderTeeTimes() {
   }
   var po = STATE.playoff || {};
   var ronda = (po.rounds && po.rounds.length>=1) ? 2 : 1;
-  var canchas = {1:'Country', 2:'Alpa'};
+  var canchas = {1:'Las Termas', 2:'Alpa'};
   var rondaData = (STATE.teetimes||{})['ronda'+ronda] || {};
   var lb = buildLeaderboard();
   var lbRank = {};
